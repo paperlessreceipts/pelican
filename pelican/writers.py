@@ -149,6 +149,7 @@ class Writer(object):
             """Render the template write the file."""
             old_locale = locale.setlocale(locale.LC_ALL)
             locale.setlocale(locale.LC_ALL, str('C'))
+            localcontext.update({'full_name': name})
             try:
                 output = template.render(localcontext)
             finally:
